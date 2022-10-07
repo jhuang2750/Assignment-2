@@ -36,7 +36,6 @@ Array.prototype.myFilter = function(callbackFn) {
 Array.prototype.mySome = function(callbackFn) {
   // Place your code here.
   for(let i=0; i<this.length; i++){
-    console.log(i);
     if(this[i] != undefined && callbackFn(this[i], i, this)){
       return true;
     }
@@ -47,6 +46,12 @@ Array.prototype.mySome = function(callbackFn) {
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
   // Place your code here.
+  for(let i=0; i<this.length; i++){
+    if(this[i] != undefined && !callbackFn(this[i], i, this)){
+      return false;
+    }
+  }
+  return true;
 };
 
 // REDUCE //
@@ -78,7 +83,3 @@ Object.myKeys = function(object) {
 Object.myValues = function(object) {
   // Place your code here.
 };
-
-test = [1,,2];
-console.log(test.mySome(num => num%2==0));
-console.log(test[1]);
